@@ -6,6 +6,9 @@ def index
 
 def show
 	@article = Article.find(params[:id])
+	@comment = Comment.new
+	@comment.article_id = @article.id
+
 	end
 
 def new
@@ -17,6 +20,9 @@ def create
   	@article.save
   	redirect_to article_path(@article)
 	end
+
+
+
 
 def destroy
 	@article = Article.delete(params[:id])
